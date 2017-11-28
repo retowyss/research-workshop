@@ -17,7 +17,8 @@ create_trials <- function(t_box = 2000,
         x_box = x_box, 
         x_max = x_max, 
         v = v, 
-        a = (x_box - v * t_box) / t_box^2 * 2)
+        a = (x_box - v * t_box) / t_box^2 * 2
+      )
     }) %>% 
     mutate(
       t_max = mnf(0.5 * a, v, - x_max)[[1]],
