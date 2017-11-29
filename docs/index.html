@@ -55,24 +55,36 @@
 <script>
   var id = new Date().getTime();
 
-  var trial_1 = {
-    stimulus: {fun : fly_plane, args : {a : 0.0000, v : 0.1}},
-    is_fun: true,
-  }
-
-  var trial_2 = {
-    stimulus: {fun : fly_plane, args : {a : 0.001, v : 0.2}},
-    is_fun: true,
-  }
-
-  var trial_3 = {
-    stimulus: {fun : fly_plane, args : {a : 0.005, v: 0.2}},
-    is_fun: true,
-  }
+  trials = [
+    {
+      stimulus: {fun : fly_plane, args : {a : 0.000, v : 0.1}},
+      is_fun: true,
+    },
+    {
+      stimulus: {fun : fly_plane, args : {a : 0.000, v : 0.4}},
+      is_fun: true,
+    },
+    {
+      stimulus: {fun : fly_plane, args : {a : 0.0001, v : 0.3}},
+      is_fun: true,
+    },
+    {
+      stimulus: {fun : fly_plane, args : {a : 0.0002, v : 0.2}},
+      is_fun: true,
+    },
+    {
+      stimulus: {fun : fly_plane, args : {a : 0.0003, v : 0.1}},
+      is_fun: true,
+    },
+    {
+      stimulus: {fun : fly_plane, args : {a : 0.0004, v : 0.0}},
+      is_fun: true,
+    }
+  ]
 
   var node = {
     type: 'single-stim',
-    timeline: [trial_1, trial_2, trial_3],
+    timeline: trials,
     choices: [89, 78], // Y or N
     prompt: '<p class="center-content">Press <b>Y</b> when you think the plane reaches the end of the black box.</p>',
     data: {
@@ -87,7 +99,7 @@
     on_finish: function() {
       jsPsych.data.displayData();
     },
-    default_iti: 250
+    default_iti: 0
   });
 
   d3.select("#plane")

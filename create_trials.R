@@ -9,7 +9,7 @@ mnf <- function(a, b, c) {
 create_trials <- function(t_box = 2000, 
                           x_box = 800,
                           x_max = 1200,
-                          vs = seq(x_box / t_box, 0, - x_box / t_box / 5)) {
+                          vs = seq(x_box / t_box, 0, - x_box / t_box / 4)) {
   vs %>% 
     map_df(function(v) {
       list(
